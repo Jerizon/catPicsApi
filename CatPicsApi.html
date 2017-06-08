@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <header>
+    <title>Simple Spotify Ajax Request</title>
+   
+  </header>
+  <body bgcolor="#E6E6FA">
+    <h1 style="text-align:center;"> Simple $.ajax request</h1>
+    <div style="text-align:center">
+    <button style="align:center;">GET NEW CAT</button>
+    <h2></h2>
+    </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+
+var searchTrack = function () {
+    $.ajax({
+        url: "http://thecatapi.com/api/images/get",
+        type: 'GET',
+        data: {
+            format: 'html',
+        },
+        success: function (response) {
+        },
+        error: function(error) {
+        },
+        complete: function (jqXHR, textStatus) {
+            $('h2').empty();
+            $('h2').append('<h2style="text-align:center;">' + jqXHR.responseText + '</h2>');
+        }
+    });
+};
+$(document).ready(function(){
+    $('button').click(searchTrack);
+})
+    </script>
+  </body>
+</html>
